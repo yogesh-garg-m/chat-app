@@ -2,6 +2,7 @@ const express = require('express');
 const dotenv = require("dotenv");
 const authRouter = require("./routes/authRoutes");
 const messageRouter = require("./routes/messageRoutes.js");
+const userRouter = require("./routes/userRoutes.js");
 const cookieParser = require("cookie-parser");
 const connectToMongoDb = require("./db/connectToMongoDb.js");
 
@@ -16,6 +17,8 @@ app.use(cookieParser());
 
 app.use("/api/auth", authRouter);
 app.use("/api/messages", messageRouter);
+app.use("/api/users", userRouter);
+
 
 app.listen(port, ()=>{
     console.log(`Server is running on port ${port}`);
